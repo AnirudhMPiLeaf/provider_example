@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:provider_example/provider/counter.dart';
+import 'package:provider_example/routes/routes.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -13,9 +14,7 @@ class HomeScreen extends StatelessWidget {
         title: const Text('Provider'),
         actions: [
           IconButton(
-            onPressed: () {
-              Navigator.of(context).pushNamed('consumer');
-            },
+            onPressed: () => toPushNamed(context, Paths.consumer),
             icon: const Icon(Icons.navigate_next),
           ),
         ],

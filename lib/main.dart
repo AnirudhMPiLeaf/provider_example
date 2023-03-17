@@ -34,20 +34,20 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(primarySwatch: Colors.blue),
       navigatorKey: navigatorKey,
       onGenerateRoute: AppRoutes().onGenerateRoute,
-      builder: (context, child) => StreamBuilder<ConnectivityResult>(
-        stream: Provider.of<ConnectivityProvider>(context).connectivityStream,
-        builder: (context, snapshot) {
-          if (snapshot.hasData) {
-            if (isNetworkAvailable(snapshot)) {
-              return const _Unfocus(child: HomeScreen());
+      debugShowCheckedModeBanner: false,
+      home: StreamBuilder<ConnectivityResult>(
+          stream: Provider.of<ConnectivityProvider>(context).connectivityStream,
+          builder: (context, snapshot) {
+            if (snapshot.hasData) {
+              if (isNetworkAvailable(snapshot)) {
+                return const _Unfocus(child: HomeScreen());
+              } else {
+                return const NoInternetScreen();
+              }
             } else {
               return const NoInternetScreen();
             }
-          } else {
-            return const NoInternetScreen();
-          }
-        },
-      ),
+          }),
     );
   }
 
