@@ -39,27 +39,8 @@ class MyApp extends StatelessWidget {
       navigatorKey: navigatorKey,
       onGenerateRoute: AppRoutes().onGenerateRoute,
       debugShowCheckedModeBanner: false,
-      home: StreamBuilder<ConnectivityResult>(
-          stream: Provider.of<ConnectivityProvider>(context).connectivityStream,
-          builder: (context, snapshot) {
-            if (snapshot.hasData) {
-              if (isNetworkAvailable(snapshot)) {
-                return const _Unfocus(child: HomeScreen());
-              } else {
-                return const NoInternetScreen();
-              }
-            } else {
-              return const NoInternetScreen();
-            }
-          }),
+      home: const _Unfocus(child: HomeScreen()),
     );
-  }
-
-  bool isNetworkAvailable(AsyncSnapshot<ConnectivityResult> snapshot) {
-    return snapshot.data == ConnectivityResult.mobile ||
-        snapshot.data == ConnectivityResult.wifi;
-    // || snapshot.data == ConnectivityResult.vpn ||
-    // snapshot.data == ConnectivityResult.ethernet;
   }
 }
 

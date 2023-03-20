@@ -1,3 +1,4 @@
+import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter/material.dart';
 
 class Commons {
@@ -10,5 +11,12 @@ class Commons {
         const CircularProgressIndicator.adaptive()
       ],
     );
+  }
+
+  static bool isNetworkAvailable(ConnectivityResult snapshot) {
+    return snapshot == ConnectivityResult.mobile ||
+        snapshot == ConnectivityResult.wifi;
+    // || snapshot.data == ConnectivityResult.vpn ||
+    // snapshot.data == ConnectivityResult.ethernet;
   }
 }
