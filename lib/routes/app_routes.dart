@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider_example/screens/consumer.dart';
 import 'package:provider_example/screens/home.dart';
+import 'package:provider_example/screens/jokes/jokes_categories.dart';
 import 'package:provider_example/screens/no_internet.dart';
 
 class AppRoutes {
@@ -15,6 +16,9 @@ class AppRoutes {
       case Paths.noInternet:
         return MaterialPageRoute(
             builder: (context) => const NoInternetScreen());
+      case Paths.jokesCategories:
+        return MaterialPageRoute(
+            builder: (context) => const JokesCategoriesScreen());
       default:
         return MaterialPageRoute(builder: (context) => const HomeScreen());
     }
@@ -27,4 +31,5 @@ abstract class Paths {
   static const home = '/home';
   static const consumer = '/consumer';
   static const noInternet = '/no-internet';
+  static const jokesCategories = '/jokes-categories';
 }
