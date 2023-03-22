@@ -8,7 +8,7 @@
   jobs:
     build:
       permissions: write-all
-      name: Build APK
+      name: Build IPA
       runs-on: macos-latest
       steps:
       - uses: actions/checkout@v3
