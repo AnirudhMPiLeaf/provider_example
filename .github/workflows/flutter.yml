@@ -28,6 +28,6 @@ jobs:
     - name: Push APK to Releases
       uses: actions/upload-artifact@v3
       with:
-        artifacts: "build/app/outputs/flutter-apk/app-release.apk"
+        path: "build/app/outputs/flutter-apk/app-release.apk"
         name: v1.0.${{ github.run_number }}
 
