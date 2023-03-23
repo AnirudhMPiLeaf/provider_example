@@ -25,4 +25,6 @@ workflows:
   flutter-workflow:
     jobs:
       - install-flutter
-      - flutter/lint
+      - flutter/lint:
+          requires: 
+            - install-flutter
